@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ماده البيئات الافتراضيه</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      id="login-container"
+      class="quiz-container login-container"
+      style="display: none"
+    >
+      <div class="header-section">
+        <p class="tagline">اختبر معلوماتك في ماده البيئات الافتراضيه</p>
+      </div>
+
+      <div class="students-list card">
+        <h2><i class="fas fa-users"></i>فريق التطوير</h2>
+        <ul>
+          <li><i class="fas fa-user-graduate"></i> أحمد محمود علي</li>
+          <li><i class="fas fa-user-graduate"></i> سارة محمد حسين</li>
+          <li><i class="fas fa-user-graduate"></i> خالد عبد الرحمن</li>
+          <li><i class="fas fa-user-graduate"></i> فاطمة إبراهيم</li>
+          <li><i class="fas fa-user-graduate"></i> عمر محمد سعيد</li>
+          <li><i class="fas fa-user-graduate"></i> نورة عبد الله</li>
+          <li><i class="fas fa-user-graduate"></i> يوسف أحمد قاسم</li>
+          <li><i class="fas fa-user-graduate"></i> لينا مصطفى</li>
+          <li><i class="fas fa-user-graduate"></i> علي حسن محمود</li>
+          <li><i class="fas fa-user-graduate"></i> مريم أسامة</li>
+        </ul>
+      </div>
+
+      <div class="login-form card">
+        <h2><i class="fas fa-sign-in-alt"></i> تسجيل الدخول</h2>
+        <button id="video-button" class="btn-secondary">
+          <i class="fas fa-video"></i> مشاهدة فيديو تعليمي الاول
+        </button>
+        <div class="input-group">
+          <label for="username-input"
+            ><i class="fas fa-user"></i> الاسم الكامل</label
+          >
+          <input
+            type="text"
+            id="username-input"
+            placeholder="أدخل اسمك الثلاثي"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="email-input"
+            ><i class="fas fa-envelope"></i> البريد الإلكتروني</label
+          >
+          <input
+            type="email"
+            id="email-input"
+            placeholder="example@domain.com"
+            required
+          />
+        </div>
+
+        <div class="instructions">
+          <h3><i class="fas fa-info-circle"></i> تعليمات الاختبار:</h3>
+          <ul>
+            <li>
+              <i class="fas fa-check-circle"></i> الاختبار مكون من 10 أسئلة
+              متنوعة
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i> يجب الإجابة على جميع الأسئلة
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i> يمكنك مراجعة الإجابات قبل
+              التسليم
+            </li>
+            <li><i class="fas fa-check-circle"></i> سيتم حفظ تقدمك تلقائياً</li>
+          </ul>
+        </div>
+
+        <button id="login-button" class="btn-primary">
+          <i class="fas fa-play-circle"></i> بدء الاختبار
+        </button>
+      </div>
+    </div>
+
+    <div id="quiz-container" class="quiz-container" style="display: none">
+      <div class="quiz-header">
+        <div class="quiz-progress card">
+          <div class="progress-info">
+            <span
+              ><i class="fas fa-question-circle"></i> عدد الأسئلة:
+              <strong id="total-questions">10</strong></span
+            >
+            <span class="progress-status" id="progress-status">0/10</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+        <div class="user-info card">
+          <i class="fas fa-user-circle"></i>
+          <div>
+            <span id="current-user">مستخدم</span>
+            <span id="current-email" class="email">email@example.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="questions-container"></div>
+
+      <div class="quiz-footer">
+        <button id="submit-button" class="btn-primary" disabled>
+          <i class="fas fa-paper-plane"></i>
+          <span id="submit-text">أجب على جميع الأسئلة (0/10)</span>
+        </button>
+        <p class="hint">
+          <i class="fas fa-lightbulb"></i> تلميح: سيتم حفظ إجاباتك تلقائياً
+        </p>
+      </div>
+    </div>
+
+    <div
+      id="result-container"
+      class="quiz-container result-container"
+      style="display: none"
+    ></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

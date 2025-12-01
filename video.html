@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فيديو تعليمي - QUIZ MASTER</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* أنماط خاصة بصفحة الفيديو الواحد */
+      .video-single-page {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .video-header {
+        text-align: center;
+        padding: 30px;
+        max-width: 900px;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .video-header .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+      }
+
+      .video-header .logo i {
+        font-size: 3rem;
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .video-header h1 {
+        font-size: 2.5rem;
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+      }
+
+      .video-header p {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-top: 15px;
+      }
+
+      /* حاوية الفيديو الرئيسية */
+      .main-video-container {
+        max-width: 900px;
+        width: 100%;
+        margin-bottom: 30px;
+      }
+
+      .video-player-card {
+        background: var(--card-bg);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+      }
+
+      .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%; /* نسبة 16:9 */
+        height: 0;
+        overflow: hidden;
+      }
+
+      .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .video-info {
+        padding: 25px;
+      }
+
+      .video-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: var(--text-light);
+        line-height: 1.4;
+      }
+
+      .video-meta {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .meta-item i {
+        color: var(--accent-light);
+      }
+
+      .video-description {
+        color: var(--text-muted);
+        line-height: 1.7;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+      }
+
+      /* أقسام إضافية */
+      .video-sections {
+        max-width: 900px;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      .section-card {
+        background: var(--card-bg);
+        border-radius: var(--radius-md);
+        padding: 25px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        color: var(--text-light);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-title i {
+        color: var(--accent-light);
+      }
+
+      .benefits-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .benefits-list li {
+        margin-bottom: 12px;
+        padding-right: 10px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .benefits-list li i {
+        color: var(--success-color);
+        margin-top: 3px;
+      }
+
+      /* أزرار التنقل */
+      .navigation-buttons {
+        display: flex;
+        gap: 20px;
+        max-width: 900px;
+        width: 100%;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      .nav-btn {
+        flex: 1;
+        min-width: 200px;
+        padding: 18px 30px;
+        border-radius: var(--radius-md);
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        text-decoration: none;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        font-family: "Cairo", sans-serif;
+        font-weight: 600;
+      }
+
+      .nav-btn.primary {
+        background: linear-gradient(135deg, #8b5cf6, #6366f1);
+        color: white;
+      }
+
+      .nav-btn.secondary {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-light);
+        border: 1px solid var(--border-color);
+      }
+
+      .nav-btn.warning {
+        background: rgba(245, 158, 11, 0.1);
+        color: var(--warning-color);
+        border: 1px solid rgba(245, 158, 11, 0.3);
+      }
+
+      .nav-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-btn.primary:hover {
+        box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+      }
+
+      /* التجاوب */
+      @media (max-width: 768px) {
+        .video-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .video-title {
+          font-size: 1.4rem;
+        }
+
+        .navigation-buttons {
+          flex-direction: column;
+        }
+
+        .nav-btn {
+          width: 100%;
+        }
+
+        .video-meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .video-header {
+          padding: 20px 15px;
+        }
+
+        .video-info {
+          padding: 20px;
+        }
+
+        .section-card {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body class="video-single-page">
+    <header class="video-header">
+      <div class="logo">
+        <i class="fas fa-play-circle"></i>
+        <h1>فيديو تعليمي عن البيئات الافتراضيه</h1>
+      </div>
+    </header>
+
+    <main class="main-video-container">
+      <div class="video-player-card">
+        <div class="video-wrapper">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/rFKH9E9o5Fo"
+            title="مفهوم بيئات التعلم الافتراضية"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+
+        <div class="video-info">
+          <h2 class="video-title">
+            <i class="fas fa-play-circle"></i> أهمية الثقافة العامة في حياتنا
+          </h2>
+
+          <div class="video-meta">
+            <div class="meta-item">
+              <i class="fas fa-clock"></i>
+              <span>المدة: 8 دقائق</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-eye"></i>
+              <span>المشاهدات: 2.3 مليون</span>
+            </div>
+            <div class="meta-item">
+              <i class="fas fa-calendar"></i>
+              <span>تاريخ النشر: 15 يناير 2024</span>
+            </div>
+          </div>
+
+          <p class="video-description">
+            هذا الفيديو يشرح أهمية المعرفة والثقافة العامة في حياتنا اليومية،
+            وكيف تؤثر على قراراتنا وطريقة تفكيرنا. يتناول الفيديو فوائد توسيع
+            المدارك الثقافية وأثرها على النجاح الشخصي والمهني.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <section class="video-sections">
+      <div class="section-card">
+        <h3 class="section-title">
+          <i class="fas fa-lightbulb"></i> ما ستتعلمه من هذا الفيديو
+        </h3>
+        <ul class="benefits-list">
+          <li>
+            <i class="fas fa-check-circle"></i>
+            فهم مفهوم التعليم الإلكتروني وأنواعه المختلفة
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            التعرف على أدوات وتقنيات البيئات الافتراضية
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            معرفة الفرق بين التعليم الصفي والإلكتروني
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            فهم متطلبات وأنظمة إدارة التعلم (LMS)
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            التعرف على تطبيقات الواقع الافتراضي في التعليم
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            فهم أهمية المكتبات الرقمية والافتراضية
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            معرفة خطوات إدخال التعليم الإلكتروني في المؤسسات
+          </li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-title">
+          <i class="fas fa-graduation-cap"></i> نصائح للفرقة الرابعة تكنولوجيا
+        </h3>
+        <ul class="benefits-list">
+          <li>
+            <i class="fas fa-star"></i>
+            راجع الأسئلة المطروحة في ملف المادة بعناية
+          </li>
+          <li>
+            <i class="fas fa-star"></i>
+            ركز على فهم المصطلحات الرئيسية مثل (LMS, CMS, VR)
+          </li>
+          <li>
+            <i class="fas fa-star"></i>
+            تعرف على الفروق بين: المكتبة الرقمية vs الإلكترونية vs الافتراضية
+          </li>
+          <li>
+            <i class="fas fa-star"></i>
+            فهم الأنواع المختلفة للتعليم الإلكتروني (متزامن، غير متزامن، مدمج)
+          </li>
+          <li>
+            <i class="fas fa-star"></i>
+            اعرف أدوات التعليم الإلكتروني (مؤتمرات، فصول افتراضية، منصات)
+          </li>
+          <li>
+            <i class="fas fa-star"></i>
+            تدرب على أسئلة الصح والخطأ واختر من متعدد
+          </li>
+          <li>
+            <i class="fas fa-star"></i>
+            استخدم هذا الفيديو كمصدر مكمل للمادة الدراسية
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="navigation-buttons">
+      <button id="continueQuizBtn" class="nav-btn primary">
+        <i class="fas fa-brain"></i> متابعة الاختبار
+      </button>
+
+      <a href="index.html" class="nav-btn secondary">
+        <i class="fas fa-home"></i> العودة للرئيسية
+      </a>
+
+      <button id="restartQuizBtn" class="nav-btn warning">
+        <i class="fas fa-redo"></i> بدء اختبار جديد
+      </button>
+    </div>
+  </body>
+</html>
