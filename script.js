@@ -1,94 +1,84 @@
 const questions = [
     {
-        question: "ما هو أطول نهر في العالم؟",
+        question: "يختلف التعليم الصفي عن الإلكتروني بكونه تعليم مباشر متزامن، يركز على المعلم، وإنتاج المعرفة.",
         answers: [
-            { text: "نهر النيل", correct: true },
-            { text: "نهر الأمازون", correct: false },
-            { text: "نهر المسيسيبي", correct: false },
-            { text: "نهر اليانغتسي", correct: false }
+            { text: "صح", correct: true },
+            { text: "خطا", correct: false },
         ]
     },
     {
-        question: "كم عدد القارات في العالم؟",
+        question: "أي من التالي يُعتبر من أدوات التعليم الإلكتروني؟",
         answers: [
-            { text: "5 قارات", correct: false },
-            { text: "6 قارات", correct: false },
-            { text: "7 قارات", correct: true },
-            { text: "8 قارات", correct: false }
+            { text: "المؤتمرات", correct: true },
+            { text: "القلم الجاف", correct: false },
+            { text: "السبورة الطباشيرية", correct: false },
+            { text: "الكتاب المطبوع", correct: false },
         ]
     },
     {
-        question: "ما هو الغاز الأكثر انتشارًا في الغلاف الجوي للأرض؟",
+        question: "تحتاج المتاحف الافتراضية إلى تكلفة عالية ولذلك يصعب تطويرها وتحديثها.",
         answers: [
-            { text: "الأكسجين", correct: false },
-            { text: "الهيدروجين", correct: false },
-            { text: "ثاني أكسيد الكربون", correct: false },
-            { text: "النيتروجين", correct: true }
+            { text: "صح", correct: true },
+            { text: "خطا", correct: false },
         ]
     },
     {
-        question: "من هو مخترع المصباح الكهربائي؟",
+        question: "أي من التالي لا يُعتبر من خصائص الكتاب الإلكتروني؟",
         answers: [
-            { text: "نيكولا تسلا", correct: false },
-            { text: "توماس إديسون", correct: true },
-            { text: "ألبرت أينشتاين", correct: false },
-            { text: "ألكسندر جراهام بيل", correct: false }
+            { text: "بساطة قراءته بالمكتبات كصورة مطبوعة", correct: true },
+            { text: "إمكانية البحث فيه", correct: false },
+            { text: "احتواءه على وسائط متعددة", correct: false },
+            { text: "سهولة تحديثه", correct: false },
         ]
     },
     {
-        question: "ما هي عاصمة اليابان؟",
+        question: "يُرمز للاختصار LMS إلى أنظمة إدارة التعلم وإدارة مقررات إلكترونية.",
         answers: [
-            { text: "أوساكا", correct: false },
-            { text: "كيوتو", correct: false },
-            { text: "طوكيو", correct: true },
-            { text: "هيروشيما", correct: false }
+            { text: "صح", correct: true },
+            { text: "خطا", correct: false },
         ]
     },
     {
-        question: "كم عدد أوتار آلة العود؟",
+        question: "أي من التالي لا يُعتبر من متطلبات التعليم الإلكتروني؟",
         answers: [
-            { text: "5 أوتار", correct: false },
-            { text: "6 أوتار", correct: false },
-            { text: "11 وترًا", correct: false },
-            { text: "12 وترًا", correct: true }
+            { text: "الحضور إلى المؤسسة التعليمية", correct: true },
+            { text: "توفر إنترنت", correct: false },
+            { text: "تأهيل المعلمين", correct: false },
+            { text: "أنظمة إدارة التعلم", correct: false },
         ]
     },
     {
-        question: "ما هو أسرع حيوان بري في العالم؟",
+        question: "يقدم تطبيق Solar system VR شرحاً دقيقاً لأجهزة الجسم مع شرح لكل عضو.",
         answers: [
-            { text: "الأسد", correct: false },
-            { text: "الفهد الصياد", correct: true },
-            { text: "النمر", correct: false },
-            { text: "الحصان", correct: false }
+            { text: "صح", correct: false },
+            { text: "خطا", correct: true },
         ]
     },
     {
-        question: "من كتب رواية 'البؤساء'؟",
+        question: "أي من التالي يُعتبر من أنواع التعليم الإلكتروني؟",
         answers: [
-            { text: "فيكتور هوغو", correct: true },
-            { text: "ليو تولستوي", correct: false },
-            { text: "تشيخوف", correct: false },
-            { text: "شارلز ديكنز", correct: false }
+            { text: "التعليم المدمج", correct: true },
+            { text: "التعليم التقليدي", correct: false },
+            { text: "التعليم الحضوري فقط", correct: false },
+            { text: "التعليم بدون تكنولوجيا", correct: false },
         ]
     },
     {
-        question: "ما هو المعدن السائل في درجة حرارة الغرفة؟",
+        question: "يُعتبر نموذج المعلم من نماذج بيئات التعلم التكيفية.",
         answers: [
-            { text: "الذهب", correct: false },
-            { text: "الفضة", correct: false },
-            { text: "الزئبق", correct: true },
-            { text: "النحاس", correct: false }
+            { text: "صح", correct: false },
+            { text: "خطا", correct: true },
         ]
     },
     {
-        question: "كم عدد أحرف اللغة العربية؟",
+        question: "أي من التالي لا يُعتبر من منصات الفصول الافتراضية؟",
         answers: [
-            { text: "26 حرفًا", correct: false },
-            { text: "28 حرفًا", correct: true },
-            { text: "30 حرفًا", correct: false },
-            { text: "32 حرفًا", correct: false }
+            { text: "Dreamweaver", correct: true },
+            { text: "Zoom", correct: false },
+            { text: "Microsoft Teams", correct: false },
+            { text: "Blackboard Collaborate", correct: false },
         ]
-    }
+    },
 ];
 
 const USER_KEY = 'quiz_current_user';
